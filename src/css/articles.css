@@ -1,0 +1,142 @@
+.articles__item__container {
+  display: grid;
+  padding: 2rem 0;
+
+  @media (--xs) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (--md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.articles__item {
+  max-width: 60rem;
+  width: calc(100vw - 4rem);
+  box-shadow: 0 1rem 3rem rgba(242, 240, 252, 1);
+  border-radius: 2.5rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  transition: .2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-.5rem);
+  }
+}
+
+.article__image__container {
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 1rem 2rem 3rem rgba(242, 240, 252, 1);
+
+  @media (--xs) {
+    width: 10rem;
+    min-width: 10rem;
+    height: 10rem;
+
+    & img {
+      object-fit: cover;
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
+  @media (--md) {
+    width: 15rem;
+    min-width: 15rem;
+    height: 15rem;
+
+    & img {
+      object-fit: cover;
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+}
+
+.article__text__container {
+  padding: 1rem 1rem .5rem 2rem;
+}
+
+.article__title {
+  line-height: 1.4;
+  color: var(--black);
+
+  @media (--xs) {
+    font-size: 1.6rem;
+  }
+
+  @media (--md) {
+    font-size: 2rem;
+  }
+}
+
+.article__source {
+  font-size: 1.2rem;
+  color: var(--grey);
+  font-family: CeraProMedium, sans-serif;
+  margin: .5rem 0;
+}
+
+.article__proc__container {
+  width: 15rem;
+}
+
+.article__proc {
+  position: absolute;
+  height: .6rem;
+  color: #222;
+  background:
+    linear-gradient(
+      to right,
+      var(--article-dark-purple),
+      var(--article-light-purple)
+    );
+  font-weight: bold;
+  border-radius: 5rem;
+}
+
+.article__proc__bg {
+  position: absolute;
+  background: #f5f5f8;
+  height: .6rem;
+  font-weight: bold;
+  border-radius: 5rem;
+}
+
+.article__proc__text {
+  margin-left: 2rem;
+  color: var(--grey);
+  font-size: 1.2rem;
+}
+
+.articles__filter__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.articles__filter__item {
+  border-radius: 50rem;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+
+  &:hover {
+    color: var(--text-purple);
+    background-color: var(--light-purple);
+    padding: 1rem 2rem;
+  }
+}
+
+.articles__filter__item__active {
+  color: white;
+  background-image:
+    linear-gradient(
+      to right,
+      var(--article-dark-purple),
+      var(--article-light-purple)
+    );
+}

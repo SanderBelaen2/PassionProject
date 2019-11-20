@@ -1,0 +1,157 @@
+.home__navigation__container {
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  position: fixed;
+  width: 100vw;
+
+  @media (--xs) {
+    bottom: 0;
+    left: 0;
+  }
+
+  @media (--md) {
+    bottom: 2.5rem;
+    left: 0;
+  }
+}
+
+.home__navigation {
+  display: flex;
+  background-color: var(--white);
+  box-shadow: 0 0 5rem rgba(242, 240, 252, 1);
+
+  @media (--xs) {
+    flex-direction: row;
+    padding: 1.5rem 2rem 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+    border-radius: 3rem 3rem 0 0;
+  }
+
+  @media (--s) {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+
+  @media (--md) {
+    border-radius: 30rem;
+    padding: 1rem;
+    justify-content: center;
+    width: max-content;
+  }
+
+  & li {
+    transition: .2s ease-in-out;
+    cursor: pointer;
+  }
+
+  & li:hover {
+    @media (--md) {
+      transform: translateY(-.2rem);
+    }
+  }
+}
+
+.home__navigation__item {
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  font-family: CeraProBold, sans-serif;
+
+  @media (--xs) {
+    margin: 0 1rem;
+    font-size: 1.4rem;
+  }
+
+  @media (--s) {
+    font-size: 1.4rem;
+  }
+
+  @media (--md) {
+    margin: 1rem 2rem;
+  }
+
+  & svg {
+    margin-right: .5rem;
+    margin-bottom: .1rem;
+    fill: var(--grey);
+  }
+}
+
+.home__navigation__item__active {
+  color: var(--text-purple);
+  background-color: var(--light-purple);
+  padding: .5rem 1rem;
+  border-radius: 5rem;
+
+  @media (--xs) {
+    padding: .5rem 1rem;
+  }
+
+  @media (--s) {
+    padding: .8rem 1.6rem;
+  }
+
+  & svg {
+    fill: var(--text-purple);
+  }
+}
+
+.home__header__container {
+  box-shadow: 0 2rem 5rem rgba(242, 240, 252, 1);
+  width: 100vw;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  font-size: 2.2rem;
+
+  & svg {
+    margin-right: .5rem;
+  }
+}
+
+.home__new__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.home__new {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+  font-family: CeraProMedium, sans-serif;
+  font-size: 1.4rem;
+  background-image:
+    linear-gradient(
+      to right,
+      var(--article-dark-purple),
+      var(--article-light-purple)
+    );
+  position: fixed;
+  outline: none;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+
+  & svg {
+    fill: white;
+    margin-right: .5rem;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (--xs) {
+    bottom: 10rem;
+  }
+
+  @media (--md) {
+    bottom: 12rem;
+  }
+}
