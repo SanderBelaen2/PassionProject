@@ -1,0 +1,27 @@
+.listenUI {
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+}
+
+.article__listen__stopButton,
+.article__listen__startButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: none;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50rem;
+  box-shadow: 0 2rem 5rem rgb(219, 216, 233);
+  transition: 0.3s ease-in-out;
+
+  & svg {
+    fill: var(--article-dark-purple);
+  }
+
+  &:hover {
+    transform: scale(0.9);
+  }
+}

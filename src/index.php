@@ -18,8 +18,8 @@ $routes = array(
     'action' => 'logout'
   ),
   'register' => array(
-    'controller' => 'Users',
-    'action' => 'register'
+    'controller' => 'Landing',
+    'action' => 'index'
   ),
   'articles' => array(
     'controller' => 'Home',
@@ -29,6 +29,10 @@ $routes = array(
     'controller' => 'Home',
     'action' => 'bundles'
   ),
+  'bundle' => array(
+    'controller' => 'Home',
+    'action' => 'bundle'
+  ),
   'profile' => array(
     'controller' => 'Home',
     'action' => 'profile'
@@ -36,6 +40,18 @@ $routes = array(
   'new' => array(
     'controller' => 'Home',
     'action' => 'new'
+  ),
+  'article-read' => array(
+    'controller' => 'Home',
+    'action' => 'article_read'
+  ),
+  'termsofservice' => array(
+    'controller' => 'Landing',
+    'action' => 'termsofservice'
+  ),
+  'whoweare' => array(
+    'controller' => 'Landing',
+    'action' => 'whoweare'
   )
 );
 

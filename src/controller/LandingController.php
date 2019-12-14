@@ -45,5 +45,13 @@ class LandingController extends Controller {
       }
   }
 
+  public function termsofservice() {
+    $this->set('title', "Terms of Service");
+  }
+
+  public function whoweare() {
+    $this->set('title', "Who we are");
+  }
+
 
 }

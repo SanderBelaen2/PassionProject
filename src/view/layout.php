@@ -17,11 +17,13 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body ontouchstart="">
+    <h1 class="hide">Artic.le</h1>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
-    <?php if($_GET['page'] == 'articles' || $_GET['page'] == 'bundles' || $_GET['page'] == 'profile' || $_GET['page'] == 'new'):?>
+    <?php if($_GET['page'] == 'articles' || $_GET['page'] == 'bundles' || $_GET['page'] == 'bundle' || $_GET['page'] == 'profile' || $_GET['page'] == 'new'):?>
     <section class="home__header__container">
 
+    <a class="header__logo" href="index.php?page=articles">
       <div class="nextXclose">
         <svg width="23px" height="26px" viewBox="0 0 23 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
@@ -41,8 +43,12 @@
                 </g>
             </g>
         </svg>
-        <h1>Artic.le</h1>
+        <p>Artic.le</p>
       </div>
+      </a>
+
+      <a class="logout" href="index.php?page=logout "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>Logout</a>
+
 
     </section>
     <?php endif;?>
@@ -51,25 +57,23 @@
     <?php echo $content;?>
 
 
-    <?php if($_GET['page'] == 'articles' || $_GET['page'] == 'bundles' || $_GET['page'] == 'profile' || $_GET['page'] == 'new'):?>
-    <section class="home__navigation__container">
-      <nav>
+    <?php if($_GET['page'] == 'articles' || $_GET['page'] == 'bundles' || $_GET['page'] == 'bundle' || $_GET['page'] == 'profile' || $_GET['page'] == 'new'):?>
+    <nav class="home__navigation__container">
         <ul class="home__navigation">
           <li><a class="home__navigation__item <?php if($_GET['page'] == 'articles') echo 'home__navigation__item__active'?>" href="index.php?page=articles">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>
             Articles
           </a></li>
-          <li><a class="home__navigation__item <?php if($_GET['page'] == 'bundles') echo 'home__navigation__item__active'?>" href="index.php?page=bundles">
+          <li><a class="home__navigation__item <?php if($_GET['page'] == 'bundles' || $_GET['page'] == 'bundle') echo 'home__navigation__item__active'?>" href="index.php?page=bundles">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15 7v12.97l-4.21-1.81-.79-.34-.79.34L5 19.97V7h10m4-6H8.99C7.89 1 7 1.9 7 3h10c1.1 0 2 .9 2 2v13l2 1V3c0-1.1-.9-2-2-2zm-4 4H5c-1.1 0-2 .9-2 2v16l7-3 7 3V7c0-1.1-.9-2-2-2z"/></svg>
             Bundles
           </a></li>
-          <li><a class="home__navigation__item <?php if($_GET['page'] == 'profile') echo 'home__navigation__item__active'?>" href="index.php?page=profile">
+          <!-- <li><a class="home__navigation__item <?php if($_GET['page'] == 'profile') echo 'home__navigation__item__active'?>" href="index.php?page=profile">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M0 0h24v24H0z"/><g fill-rule="evenodd" clip-rule="evenodd"><path d="M9 17l3-2.94c-.39-.04-.68-.06-1-.06-2.67 0-8 1.34-8 4v2h9l-3-3zm2-5c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4"/><path d="M15.47 20.5L12 17l1.4-1.41 2.07 2.08 5.13-5.17 1.4 1.41z"/></g></svg>
           Profile
-        </a></li>
+        </a></li> -->
         </ul>
       </nav>
-    </section>
     <?php endif;?>
 
 
@@ -79,48 +83,20 @@
       AOS.init();
     </script>
     <script>
-    if ("serviceWorker" in navigator) {
-      if (navigator.serviceWorker.controller) {
-        console.log("[PWA Builder] active service worker found, no need to register");
-      } else {
-        // Register the service worker
-        navigator.serviceWorker
-          .register("pwabuilder-sw.js", {
-            scope: "./"
-          })
-          .then(function (reg) {
-            console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-          });
-      }
-    }
-    </script>
-    <script>
-          let deferredPrompt = null;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-});
-
-async function install() {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    console.log(deferredPrompt)
-    deferredPrompt.userChoice.then(function(choiceResult){
-
-      if (choiceResult.outcome === 'accepted') {
-      console.log('Your PWA has been installed');
-    } else {
-      console.log('User chose to not install your PWA');
-    }
-
-    deferredPrompt = null;
-
-    });
-  }
-}
-    </script>
-  </body>
-</html>
+        if ("serviceWorker" in navigator) {
+          if (navigator.serviceWorker.controller) {
+            console.log("[PWA Builder] active service worker found, no need to register");
+          } else {
+            // Register the service worker
+            navigator.serviceWorker
+              .register("pwabuilder-sw.js", {
+                scope: "./"
+              })
+              .then(function (reg) {
+                console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+              });
+          }
+        }
+        </script>
+      </body>
+    </html>

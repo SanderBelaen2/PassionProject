@@ -1,7 +1,8 @@
 :root {
   --white: white;
   --black: #242328;
-  --grey: #a899b3;
+  --grey: #92889A;
+  --light-grey: #C7B9D1;
   --text-purple: #7f2ce8;
   --light-purple: #d7bff7;
   --article-light-purple: #ce6bf7;
@@ -12,7 +13,7 @@
 @custom-media --xs screen and (min-width: 0);
 @custom-media --s screen and (min-width: 350px);
 @custom-media --sm screen and (min-width: 576px);
-@custom-media --md screen and (min-width: 768px);
+@custom-media --md screen and (min-width: 728px);
 @custom-media --lg screen and (min-width: 900px);
 @custom-media --xl screen and (min-width: 1260px);
 @custom-media --xxl screen and (min-width: 1460px);

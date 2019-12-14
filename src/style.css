@@ -1,15 +1,18 @@
-@import './css/reset.css';
-@import './css/vars.css';
-@import './css/fonts.css';
-@import './css/home.css';
-@import './css/landing.css';
-@import './css/login.css';
-@import './css/articles.css';
+@import "./css/reset.css";
+@import "./css/vars.css";
+@import "./css/fonts.css";
+@import "./css/home.css";
+@import "./css/landing.css";
+@import "./css/login.css";
+@import "./css/articles.css";
+@import "./css/article_read.css";
+@import "./css/article_listen.css";
+@import "./css/bundles.css";
+@import "./css/bundle.css";
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  overflow: hidden;
   height: 100%;
   scroll-behavior: smooth;
 }
@@ -28,13 +31,9 @@ body {
   color: var(black);
   font-size: 1.6rem;
   line-height: 1.5;
+  overflow-x: hidden;
   white-space: wrap;
   height: 100%;
-  overflow: hidden;
-  /* stylelint-disable */
-  -webkit-user-select: none;
-  /* stylelint-enable */
-  -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
 
@@ -51,7 +50,7 @@ body {
   width: 100%;
   min-height: 100%;
   max-width: 54rem;
-  padding: 0 2rem;
+  padding: 0 2rem 15rem;
 
   @media (--sm) {
     margin: 0 auto;
@@ -87,6 +86,13 @@ body {
   align-content: space-between;
   justify-content: flex-start;
   align-items: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .responsiveXclose {
@@ -136,7 +142,7 @@ body {
   color: var(--red);
 
   & ::before {
-    content: 'error';
+    content: "error";
     position: absolute;
     width: 3rem;
     height: 3rem;
@@ -155,4 +161,8 @@ body {
   @media (--md) {
     display: initial;
   }
+}
+
+.header__logo {
+  color: var(--black);
 }

@@ -4,165 +4,110 @@ require_once( __DIR__ . '/DAO.php');
 
 class HomeDAO extends DAO {
 
-  public function selectLinksByUserId($user_id){
-    $sql = "SELECT * FROM `links` WHERE `user_id` = :user_id ORDER  BY `id` DESC";
+  public function selectArticlesByUserId($user_id){
+    $sql = "SELECT * FROM `articles` WHERE `user_id` = :user_id ORDER  BY `id` DESC";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':user_id', $user_id);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function visitorSelectLinksByUserId($user_id){
-    $sql = "SELECT * FROM `links` WHERE `user_id` = :user_id AND `url` != '' AND `url` != 'http://' AND `title` != '' AND `show` != 0 ORDER  BY `tile` DESC";
+  public function selectArticlesByBundleId($data){
+    $sql = "SELECT * FROM `articles` WHERE `user_id` = :user_id && `bundle_id` = :bundle_id ORDER  BY `id` DESC";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $user_id);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':bundle_id', $data['bundle_id']);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function visitorSelectSocialsByUserId($user_id){
-    $sql = "SELECT `socialplatforms`.`svg`, `socialplatforms`.`id` as `platform_id`, `socialplatforms`.`social_url`, `socials`.`handle` from `socialplatforms` LEFT JOIN `socials` ON `socials`.`platform_id` = `socialplatforms`.`id` WHERE `socials`.`user_id` = :id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':id', $user_id);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
-
-  public function addLink($data){
-    $sql = "INSERT INTO `links` (`user_id`, `title`, `url`, `tile`) VALUES (:user_id, :title, :url, :tile)";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':title', $data['title']);
-    $stmt->bindValue(':url', $data['url']);
-    $stmt->bindValue(':tile', $data['tile']);
-    $stmt->execute();
-  }
-
-  public function updateLink($data) {
-    $sql = "UPDATE `links` SET `title` = :title, `url` = :url WHERE `id` = :id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':title', $data['title']);
-    $stmt->bindValue(':url', $data['url']);
-    $stmt->bindValue(':id', $data['link_id']);
-    $stmt->execute();
-}
-
-public function updateLinkTitle($data) {
-  $sql = "UPDATE `links` SET `title` = :title WHERE `id` = :id";
-  $stmt = $this->pdo->prepare($sql);
-  $stmt->bindValue(':title', $data['title']);
-  $stmt->bindValue(':id', $data['link_id']);
-  $stmt->execute();
-}
-
-public function updateLinkUrl($data) {
-  $sql = "UPDATE `links` SET  `url` = :url WHERE `id` = :id";
-  $stmt = $this->pdo->prepare($sql);
-  $stmt->bindValue(':url', $data['url']);
-  $stmt->bindValue(':id', $data['link_id']);
-  $stmt->execute();
-}
-
-public function updateTileLink($data) {
-  $sql = "UPDATE `links` SET  `tile` = :tile WHERE `id` = :id";
-  $stmt = $this->pdo->prepare($sql);
-  $stmt->bindValue(':tile', $data['tile']);
-  $stmt->bindValue(':id', $data['link_id']);
-  $stmt->execute();
-}
-
-public function updateShowLink($data) {
-  $sql = "UPDATE `links` SET  `show` = :show WHERE `id` = :id";
-  $stmt = $this->pdo->prepare($sql);
-  $stmt->bindValue(':show', $data['show']);
-  $stmt->bindValue(':id', $data['link_id']);
-  $stmt->execute();
-}
-
-  public function deleteLink($id){
-    $sql = "DELETE FROM `links` WHERE `id` = :id";
+  public function selectArticleById($id){
+    $sql = "SELECT * FROM `articles` WHERE `id` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
-    return $stmt->execute();
-  }
-
-  public function deleteLinkClicks($id){
-    $sql = "DELETE FROM `linksclicks` WHERE `link_id` = :id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':id', $id);
-    return $stmt->execute();
-  }
-
-  public function addFeatureRequest($data){
-    $sql = "INSERT INTO `featurerequests` (`user_id`, `subject`, `request`, `timestamp`) VALUES (:user_id, :subject, :request, :timestamp)";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':subject', $data['subject']);
-    $stmt->bindValue(':request', $data['request']);
-    $stmt->bindValue(':timestamp', $data['timestamp']);
     $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
-  public function addBugReport($data){
-    $sql = "INSERT INTO `bugreports` (`user_id`, `subject`, `text`, `timestamp`) VALUES (:user_id, :subject, :text, :timestamp)";
+  public function addArticle($data){
+    $sql = "INSERT INTO `articles` (`url`, `user_id`, `title`, `img`, `domain`, `text`,`textToRead`, `proc`, `bundle_id`) VALUES (:url, :user_id, :title, :img, :domain, :text, :textToRead, :proc, :bundle_id)";
     $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':url', $data['url']);
     $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':subject', $data['subject']);
+    $stmt->bindValue(':title', $data['title']);
+    $stmt->bindValue(':img', $data['img']);
+    $stmt->bindValue(':domain', $data['domain']);
     $stmt->bindValue(':text', $data['text']);
-    $stmt->bindValue(':timestamp', $data['timestamp']);
+    $stmt->bindValue(':textToRead', $data['textToRead']);
+    $stmt->bindValue(':proc', 0);
+    $stmt->bindValue(':bundle_id', $data['bundle_id']);
     $stmt->execute();
   }
 
-  public function selectSocialPlatforms($user_id){
-    $sql = "SELECT `socialplatforms`.`svg`, `socialplatforms`.`placeholder`, `socialplatforms`.`id` as `platform_id`, `socials`.`handle`
-    FROM `socialplatforms`
-    LEFT JOIN `socials`
-    ON `socials`.`platform_id` = `socialplatforms`.`id`
-    WHERE `socials`.`user_id` = :id || `socials`.`user_id` IS NULL
-    ORDER BY `socialplatforms`.`id`";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':id', $user_id);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
+//   public function updateArticle($data) {
+//     $sql = "UPDATE `Articles` SET `title` = :title, `url` = :url WHERE `id` = :id";
+//     $stmt = $this->pdo->prepare($sql);
+//     $stmt->bindValue(':title', $data['title']);
+//     $stmt->bindValue(':url', $data['url']);
+//     $stmt->bindValue(':id', $data['Article_id']);
+//     $stmt->execute();
+// }
 
-  public function addSocial($data){
-    $sql = "INSERT INTO `socials` (`user_id`, `handle`, `platform_id`) VALUES (:user_id, :handle, :platform_id)";
+  public function deleteArticle($id){
+    $sql = "DELETE FROM `articles` WHERE `id` = :id";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':handle', $data['handle']);
-    $stmt->bindValue(':platform_id', $data['platform_id']);
-    $stmt->execute();
-  }
-
-  public function updateSocial($data) {
-    $sql = "UPDATE `socials` SET  `handle` = :handle WHERE `platform_id` = :platform_id AND `user_id` = :user_id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':handle', $data['handle']);
-    $stmt->bindValue(':platform_id', $data['platform_id']);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->execute();
-  }
-
-  public function selectSocialByUserAndPlatform($data){
-    $sql = "SELECT * from `socials` WHERE `user_id` = :user_id AND `platform_id` = :platform_id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':platform_id', $data['platform_id']);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
-
-  public function deleteSocial($data){
-    $sql = "DELETE FROM `socials` WHERE `user_id` = :user_id AND `platform_id` = :platform_id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':user_id', $data['user_id']);
-    $stmt->bindValue(':platform_id', $data['platform_id']);
+    $stmt->bindValue(':id', $id);
     return $stmt->execute();
   }
 
+    public function updateProc($data) {
+    $sql = "UPDATE `Articles` SET `proc` = :proc WHERE `id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':proc', $data['proc']);
+    $stmt->bindValue(':id', $data['article_id']);
+    $stmt->execute();
+}
 
+public function selectBundles($user_id){
+  $sql = "SELECT * FROM `bundles` WHERE `user_id` = :user_id ORDER  BY `id` ASC";
+  $stmt = $this->pdo->prepare($sql);
+  $stmt->bindValue(':user_id', $user_id);
+  $stmt->execute();
+  return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
+public function selectBundlesByUserId($user_id){
+  $sql = "SELECT `bundles`.*, `articles`.`img` FROM `bundles` left JOIN `articles` ON `bundles`.`id` = `articles`.`bundle_id` WHERE `bundles`.`user_id` = :user_id ORDER  BY `id` ASC";
+  $stmt = $this->pdo->prepare($sql);
+  $stmt->bindValue(':user_id', $user_id);
+  $stmt->execute();
+  return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public function addBundle($data){
+  $sql = "INSERT INTO `bundles` (`name`, `user_id`, `description`, `thumbnail`) VALUES (:name, :user_id, :description, :thumbnail)";
+  $stmt = $this->pdo->prepare($sql);
+  $stmt->bindValue(':user_id', $data['user_id']);
+  $stmt->bindValue(':name', $data['name']);
+  $stmt->bindValue(':description', $data['description']);
+  $stmt->bindValue(':thumbnail', $data['thumbnail']);
+  $stmt->execute();
+}
+
+public function selectBundleById($id){
+  $sql = "SELECT * FROM `bundles` WHERE `id` = :id";
+  $stmt = $this->pdo->prepare($sql);
+  $stmt->bindValue(':id', $id);
+  $stmt->execute();
+  return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+public function deleteBundle($id){
+  $sql = "DELETE FROM `bundles` WHERE `id` = :id";
+  $stmt = $this->pdo->prepare($sql);
+  $stmt->bindValue(':id', $id);
+  return $stmt->execute();
+}
 
 
 }

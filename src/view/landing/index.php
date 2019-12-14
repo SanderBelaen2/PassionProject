@@ -1,5 +1,6 @@
 <div class="landing__container">
-  <div class="container responsiveX">
+  <div class="container">
+  <div class="responsiveX">
     <div class="landing__text__container">
       <div class="landing__logo nextXclose">
           <svg width="44px" height="54px" viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -54,6 +55,13 @@
     </div>
     <div class="landing__image__container">
       <img src="./assets/img/landing/headerimage.png" alt="screenshot of the artic.le app" draggable='false'>
+    </div>
+    </div>
+    <div class="landing__footer__container">
+      <ul class="landing__footer nextXclose">
+        <a href="index.php?page=termsofservice"><li>Terms of Service</li></a>
+        <a href="index.php?page=whoweare"><li>Who are we?</li></a>
+      </ul>
     </div>
   </div>
 
@@ -114,7 +122,6 @@
       <p><?php echo $_SESSION['user']['email'];?> - <a href="index.php?page=logout" class="logout-button">Logout</a></p>
       <?php endif; ?>
   </section>
-
 <?php endif;?>
 
 
