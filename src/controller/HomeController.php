@@ -245,6 +245,13 @@ class HomeController extends Controller {
 
   }elseif($_POST['action'] == 'submitArticle'){
 
+    $bodyToRead = "";
+    $string = explode(" ", $_POST['bodyToRead']);
+    $max = sizeof($string);
+    for($i = 0; $i < $max;$i++){
+      $bodyToRead = $bodyToRead.'<span id="word_span_'.$i.'">'.$string[$i]."</span>&nbsp;";
+    }
+
     $data = array(
       'url' => $_POST['url'],
       'user_id' => $_SESSION['user']['id'],
@@ -252,7 +259,7 @@ class HomeController extends Controller {
       'img' => $_POST['image'],
       'domain' => $_POST['domain'],
       'text' => $_POST['body'],
-      'textToRead'=> $_POST['bodyToRead'],
+      'textToRead'=> $bodyToRead,
       'bundle_id' => $_POST['bundle_id'],
     );
 

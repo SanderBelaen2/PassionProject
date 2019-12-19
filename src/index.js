@@ -33,16 +33,15 @@ let wordIndex = 1;
   };
 
   const handleStartTalking = () => {
-    origText = document.querySelector(`#textDefault`).textContent;
-    const text = document.querySelector(`#textToRead`).textContent;
+    origText = document.querySelector(`#textDefault`).innerHTML;
+    const textPlay = document.querySelector(`#textToRead`).innerHTML;
+    const textShow = document.querySelector(`#textToRead`).textContent;
     msg.lang = "en-UK";
     msg.rate = 0.9;
 
-    let words = text.split(" ");
-    globalWords = words;
-    drawTextInPanel(words);
-    spokenTextArray = words;
-    msg.text = text;
+    const panel = document.getElementById("textDefault");
+    panel.innerHTML = textPlay;
+    msg.text = textShow;
     msg.addEventListener(`boundary`, handleMsgBoundary);
     msg.addEventListener(`end`, handleStopTalking);
 
@@ -52,8 +51,8 @@ let wordIndex = 1;
   };
 
   const handleStopTalking = () => {
-    stopButton.classList.remove(`hide`);
-    startButton.classList.add(`hide`);
+    stopButton.classList.add(`hide`);
+    startButton.classList.remove(`hide`);
     const panel = document.getElementById("textDefault");
     panel.innerHTML = `${origText}`;
     wordIndex = 1;
@@ -63,26 +62,13 @@ let wordIndex = 1;
   const handleMsgBoundary = () => {
     try {
       if (document.getElementById("word_span_" + wordIndex)) {
-        document.getElementById("word_span_" + wordIndex).style.color = "black";
-        document.getElementById(
-          "word_span_" + wordIndex
-        ).style.backgroundColor = "#d7bff7";
-        document.getElementById("word_span_" + wordIndex).style.textDecoration =
-          "underline";
+        const word = document.getElementById("word_span_" + wordIndex);
+        word.classList.add("highlightedText");
+        window.scrollTo(0, word.offsetTop);
       }
     } catch (e) {}
 
     wordIndex++;
-  };
-
-  const drawTextInPanel = wordsArray => {
-    const panel = document.getElementById("textDefault");
-    panel.innerHTML = ``;
-    for (let i = 0; i < wordsArray.length; i++) {
-      const html =
-        '<span id="word_span_' + i + '">' + wordsArray[i] + "</span>&nbsp;";
-      panel.innerHTML += html;
-    }
   };
 
   const changeDocumentTitleOnBlur = () => {
@@ -167,43 +153,14 @@ let wordIndex = 1;
     }).then((window.location = "index.php?page=articles"));
   };
 
-  // const AddArticleAJAX = () => {
-  //   const urlString = window.location.href;
-  //   const url = new URL(urlString);
-  //   const page = url.searchParams.get("page");
-
-  //   console.log(page);
-
-  //   if (page == "new") {
-  //     const inputField = document.querySelector(`.newArticleLink`);
-
-  //     if (inputField.value !== "") {
-  //       document
-  //         .querySelector(`.pageloadingContainer`)
-  //         .classList.remove(`hide`);
-
-  //       var linkToScrape = url.searchParams.get("url");
-  //       const formData = new FormData();
-  //       formData.append("newArticleLink", linkToScrape);
-
-  //       fetch(``, {
-  //         headers: new Headers({
-  //           Accept: `application/json`
-  //         }),
-  //         method: "post",
-  //         body: formData
-  //       }).then((window.location = "index.php?page=articles"));
-  //     }
-  //   }
-  // };
-
   const checkBundle = () => {
     const $submitButton = document.querySelector(`.submitArticleLink`);
     if ($submitButton) {
       $submitButton.addEventListener(`click`, e => {
-        if (document.querySelector(`.new__input__select`).value === 0) {
-          e.preventDefault();
-          $submitButton.nextSibling.textContent =
+        if (document.querySelector(`.new__input__select`).value == 0) {
+          document.querySelector(
+            `.new__input__select`
+          ).nextSibling.nextSibling.textContent =
             "You have to choose a bundle first";
         }
       });
@@ -242,7 +199,8 @@ let wordIndex = 1;
   };
 
   const newBundle = () => {
-    const newBundleButton = document.querySelector(`.home__new`);
+    const newBundleButton = document.querySelector(`.home__new__bundle`);
+    console.log("test");
     if (newBundleButton) {
       newBundleButton.addEventListener(`click`, () => {
         document.querySelector(`.newBundle`).classList.remove(`hide`);
@@ -316,7 +274,12 @@ let wordIndex = 1;
       }),
       method: "post",
       body: formData
-    }).then((setTimeout(() => {window.location.href = "index.php?page=articles"}), 1000));
+    }).then(
+      (setTimeout(() => {
+        window.location.href = "index.php?page=articles";
+      }),
+      1000)
+    );
   };
 
   init();

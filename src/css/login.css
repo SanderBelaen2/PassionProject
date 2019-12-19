@@ -66,6 +66,14 @@
   }
 }
 
+.password__input {
+  letter-spacing: .2rem;
+
+  &::placeholder {
+    letter-spacing: 0;
+  }
+}
+
 .login__header__goodmorning {
   font-size: 1.8rem;
   margin-bottom: 3rem;
@@ -105,6 +113,7 @@
   background-color: white;
   border: 0.3rem solid var(--article-dark-purple);
   border-radius: 50rem;
+  text-align: center;
   cursor: pointer;
   outline: none;
 }
@@ -119,7 +128,7 @@
   width: max-content;
   padding: 0.5rem 1rem;
   border-radius: 5rem;
-  transition: .1s ease-in-out;
+  transition: 0.1s ease-in-out;
   height: max-content;
   position: absolute;
   right: 2rem;
@@ -137,4 +146,8 @@
       fill: white;
     }
   }
+}
+
+.login__error {
+  text-align: center;
 }

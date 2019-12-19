@@ -4,8 +4,8 @@
   <div class="article__read__text">
     <h3><?php echo $article['title'];?></h3>
     <a class="article__read__domain" href="<?php echo $article['url'];?>"><?php echo $article['domain'];?></a>
-    <p id="textDefault" class="textDefault"><?php echo $article['text'];?></p>
-    <p id="textToRead" class="hide"><?php echo $article['textToRead'];?></p>
+    <div id="textDefault" class="textDefault"><?php echo $article['text'];?></div>
+    <div id="textToRead" class="textDefault hide"><?php echo $article['textToRead'];?></div>
   </div>
   <div class="padding">
   <h2 class="article__read__h2">Now what?</h2>
@@ -29,7 +29,7 @@
   </div>
 
 </section>
-<a class="article__read__backbutton" href="index.php?page=articles"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/></svg> Back</a>
+<a class="article__read__backbutton" href="index.php?page=articles"><div class="nextXclose"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/></svg> Back</div></a>
 <section class="listenUI">
   <button class="article__listen__startButton" id="play"><svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
   <button class="article__listen__stopButton hide" id="stop"><svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 6h12v12H6z"/></svg></button>

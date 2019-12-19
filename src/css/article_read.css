@@ -73,8 +73,14 @@
     line-height: 2.2;
     font-size: 1.8rem;
     color: var(--grey);
-    margin: 0 auto;
     padding-bottom: 5rem;
+  }
+
+  & span {
+    font-family: CeraProMedium, sans-serif;
+    line-height: 2.2;
+    font-size: 1.8rem;
+    color: var(--grey);
   }
 }
 
@@ -96,7 +102,6 @@
   background-color: var(--light-purple);
   padding: 1rem 2rem;
   font-size: 1.6rem;
-  width: max-content;
   border-radius: 50rem;
   margin-top: 1rem;
 
@@ -146,7 +151,7 @@
   transition: 0.1s ease-in-out;
   cursor: pointer;
 
-  @media  (--xs) {
+  @media (--xs) {
     margin: 2rem 0 0;
   }
 
@@ -177,4 +182,20 @@
 
 .padding {
   padding: 2rem;
+}
+
+.highlightedText {
+  color: black !important;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: calc(100% + 0.6rem);
+    height: 80%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: yellow;
+    z-index: -1;
+  }
 }

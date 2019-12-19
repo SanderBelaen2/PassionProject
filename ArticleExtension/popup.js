@@ -18,6 +18,6 @@ changeColor.onclick = function(element) {
     }
   );
   chrome.tabs.create({
-    url: `http://localhost:8888/src/index.php?page=new&url=${tab.url}`
+    url: `https://sanderbelaen.be/?page=new&url=${tab.url}`
   });
 };

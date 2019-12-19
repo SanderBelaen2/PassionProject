@@ -61,7 +61,7 @@ class HomeDAO extends DAO {
   }
 
     public function updateProc($data) {
-    $sql = "UPDATE `Articles` SET `proc` = :proc WHERE `id` = :id";
+    $sql = "UPDATE `articles` SET `proc` = :proc WHERE `id` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':proc', $data['proc']);
     $stmt->bindValue(':id', $data['article_id']);

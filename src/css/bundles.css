@@ -10,11 +10,11 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  @media (--lg) {
+  @media (--xl) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  & li {
+  & li  {
     justify-self: center;
   }
 }
@@ -124,6 +124,5 @@
 
   @media (--md) {
     font-size: 2.2rem;
-
   }
 }

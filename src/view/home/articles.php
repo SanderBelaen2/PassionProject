@@ -1,13 +1,4 @@
-<!-- <?php if(!empty($bundles)):?>
-  <section>
-    <ul class="articles__filter__container">
-      <li class="articles__filter__item articles__filter__item__active">All</li>
-      <?php foreach (array_reverse($bundles) as $bundle):?>
-      <li class="articles__filter__item"><?php echo $bundle['name']?></li>
-      <?php endforeach;?>
-    </ul>
-  </section>
-<?php endif;?> -->
+
 
 <?php if(!empty($_SESSION['error'])):?>
 <div class="message__container message__container__fade">

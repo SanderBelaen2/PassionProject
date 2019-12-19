@@ -22,7 +22,8 @@ class LandingController extends Controller {
         }
       }
 
-      if (!empty($_POST)) {
+      if (!empty($_POST['action'])) {
+        if($_POST['action']=='login'){
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
           $existing = $this->userDAO->selectByEmail($_POST['email']);
           if (!empty($existing)) {
@@ -42,7 +43,44 @@ class LandingController extends Controller {
         }
         header('Location: index.php?page=login');
         exit();
+      }elseif($_POST['action']=='register'){
+        $errors = array();
+        if (empty($_POST['email'])) {
+          $errors['email'] = 'Please enter your email';
+        } else {
+          $existing = $this->userDAO->selectByEmail($_POST['email']);
+          if (!empty($existing)) {
+            $errors['email'] = 'Email address is already in use';
+          }
+        }
+        if (empty($_POST['password'])) {
+          $errors['password'] = 'Please enter a password';
+        }
+        if ($_POST['confirm_password'] != $_POST['password']) {
+          $errors['confirm_password'] = 'Passwords do not match';
+        }
+
+
+
+        if (empty($errors)) {
+          $data = array(
+            'email' => $_POST['email'],
+            'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
+          );
+          $inserteduser = $this->userDAO->insert($data);
+          if (!empty($inserteduser)) {
+            $_SESSION['info'] = 'Registration Successful!';
+            $_SESSION['user'] = $inserteduser;
+            header('Location: index.php?page=articles');
+            exit();
+          } else {
+            print_r($this->userDAO->validate($data));
+          }
+        }
+        $_SESSION['error'] = 'Registration Failed!';
+        $this->set('errors', $errors);
       }
+    }
   }
 
   public function termsofservice() {
