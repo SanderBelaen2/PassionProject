@@ -1,0 +1,17 @@
+:root {
+  --white: white;
+  --black: #2d2b33;
+  --grad1: #ec14ff;
+  --grad2: #6806fe;
+  --grey: #7f7b94;
+  --headerBlue: #eceff6;
+  --red: #f8275d;
+}
+
+@custom-media --xs screen and (min-width: 0);
+@custom-media --s screen and (min-width: 350px);
+@custom-media --sm screen and (min-width: 576px);
+@custom-media --md screen and (min-width: 768px);
+@custom-media --lg screen and (min-width: 900px);
+@custom-media --xl screen and (min-width: 1260px);
+@custom-media --xxl screen and (min-width: 1460px);

@@ -2,13 +2,11 @@
 @import "./css/vars.css";
 @import "./css/fonts.css";
 @import "./css/home.css";
-@import "./css/landing.css";
 @import "./css/login.css";
-@import "./css/articles.css";
-@import "./css/article_read.css";
-@import "./css/article_listen.css";
-@import "./css/bundles.css";
-@import "./css/bundle.css";
+@import "./css/detail.css";
+@import "./css/blog.css";
+@import "./css/terms.css";
+@import "./css/overzicht.css";
 
 html {
   font-size: 62.5%;
@@ -27,19 +25,20 @@ html {
 /* stylelint-enable */
 
 body {
-  font-family: CeraProBold, Futura, sans-serif;
+  font-family: CeraProMedium, Futura, sans-serif;
   color: var(black);
   font-size: 1.6rem;
   line-height: 1.5;
   overflow-x: hidden;
-  white-space: wrap;
   height: 100%;
   -webkit-touch-callout: none;
+  -webkit-backface-visibility: hidden;
+  position: relative;
+
+  z-index: -3;
 }
 
 .body {
-  overflow-x: hidden;
-
   @media (--md) {
     display: flex;
     justify-content: center;
@@ -50,7 +49,7 @@ body {
   width: 100%;
   min-height: 100%;
   max-width: 54rem;
-  padding: 0 2rem 15rem;
+  padding: 0 2rem;
 
   @media (--sm) {
     margin: 0 auto;
@@ -89,6 +88,12 @@ body {
 }
 
 .center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.centerY {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -166,3 +171,15 @@ body {
 .header__logo {
   color: var(--black);
 }
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* .aos-animate {
+  -webkit-transform: initial;
+  transform: initial;
+} */

@@ -1,0 +1,12 @@
+RewriteEngine on
+
+RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+RewriteRule ^([^/.]+)$ index.php?page=$1
+RewriteRule ^blogpost/([0-9]+)$ ?page=blogpost&id=$1 [NC,L]
+RewriteRule ^category/([^/]*)/?([^/]*)/?([^/]*)/?([^/]*)?$ ?page=category&category=$1&pagenr=$2&s=$3 [QSA]
+RewriteRule ^detail/([^/]*)?$  ?page=detail&url=$1
+
+
+

@@ -1,0 +1,142 @@
+.home__analytics__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.analytics__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  min-height: calc(100vh - 10rem);
+
+  @media (--xs) {
+    padding-bottom: 12rem;
+  }
+
+  @media (--md) {
+    padding-bottom: 0;
+  }
+}
+
+.analytics__container__counters {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.analytics__tile {
+  background-color: var(--white);
+  box-shadow: 0 2rem 2rem rgba(213, 221, 236, 0.4);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.analytics__container__counters__item {
+  position: relative;
+
+  @media (--xs) {
+    width: calc(50vw - 3rem);
+  }
+
+  @media (--md) {
+    width: calc((50rem / 2) - 5rem);
+  }
+
+  @media (--lg) {
+    width: calc((60rem / 2) - 5rem);
+  }
+
+  @media (--xl) {
+    width: calc((70rem / 2) - 5rem);
+  }
+}
+
+.analytics__container__counters__item__icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.analytics__container__counters__item__blue {
+  background-color: #c6c9ee;
+
+  & svg {
+    fill: linear-gradient(to right, var(--grad1), var(--grad2));
+  }
+}
+
+.analytics__container__counters__item__lightblue {
+  background: linear-gradient(to right, var(--grad1), var(--grad2));
+
+  & svg {
+    fill: white;
+  }
+}
+
+.analytics__container__counters__item__purple {
+  background-color: #ecc8f0;
+
+  & svg {
+    fill: var(--biolinky-purple);
+  }
+}
+
+.analytics__container__counters__item__yellow {
+  background-color: #ffe4b6;
+
+  & svg {
+    fill: var(--biolinky-orange);
+  }
+}
+
+.analytics__container__counters__item__green {
+  background-color: #b3fbde;
+
+  & svg {
+    fill: var(--biolinky-green);
+  }
+}
+
+.analytics__container__counters__item__value {
+  font-size: 3rem;
+  font-family: CeraProBlack, sans-serif;
+  font-style: bold;
+}
+
+.refreshButton {
+  margin: 4rem 0;
+  background: linear-gradient(to right, var(--grad1), var(--grad2));
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  font-family: CeraProMedium, sans-serif;
+  color: white;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+.approvebutton__approve {
+  margin: 1rem 0;
+  background: linear-gradient(to right, var(--grad1), var(--grad2));
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  font-family: CeraProMedium, sans-serif;
+  color: white;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+.approvebutton__delete {
+  background: var(--red);
+}

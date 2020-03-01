@@ -1,0 +1,131 @@
+.terms {
+  margin: 4rem;
+}
+
+.terms > h2 {
+  font-size: 4rem;
+  margin: 1rem 0;
+}
+
+.terms > h3 {
+  font-size: 2rem;
+  margin: 3rem 0 1rem;
+}
+
+.terms > p,
+.terms > li {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  font-family: CeraProMedium, sans-serif;
+  line-height: 1.8;
+  color: var(--grey);
+
+}
+
+.terms strong {
+  font-family: CeraProBold, sans-serif;
+}
+
+.terms > ul {
+  list-style: decimal;
+}
+
+.landing__cookiesdiclaimer {
+  position: fixed;
+  z-index: 10000000;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 3rem;
+
+  & a {
+    color: var(--grad1);
+
+    &:visited {
+      color: var(--grad2);
+    }
+  }
+
+  @media (--xs) {
+    left: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+    box-shadow: 0 0 3rem rgba(213, 221, 236, 1);
+    padding: 2rem 3rem;
+  }
+
+  @media (--md) {
+    right: 3rem;
+    left: initial;
+    bottom: 3rem;
+    padding: 2.5rem 4rem;
+    max-width: 30rem;
+    box-shadow: 0 1rem 3rem rgba(213, 221, 236, 1);
+  }
+}
+
+.cookieagree__button {
+  background: linear-gradient(to right, var(--grad1), var(--grad2));
+  color: white;
+  padding: 1rem 4rem;
+  border-radius: 5rem;
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+  font-family: CeraProMedium, sans-serif;
+  margin-top: 2rem;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.cookiesvg {
+  width: 10rem;
+  position: absolute;
+  right: -1rem;
+  bottom: -3rem;
+}
+
+.landing__faq__p {
+  width: 100%;
+  max-width: 65rem;
+  line-height: 1.8;
+  font-family: CeraProMedium, sans-serif;
+  color: var(--grey);
+
+  & strong {
+    font-family: CeraProBold, sans-serif;
+  }
+
+  & a {
+    color: var(--grad2);
+  }
+
+  @media (--xs) {
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+  }
+}
+
+.landing__faq__h3 {
+  width: 100%;
+  max-width: 65rem;
+  font-size: 2.2rem;
+}
+
+.landing__faq__slogan {
+  line-height: 1.2;
+  font-family: CeraProBold, Futura, sans-serif;
+  margin: 4rem 0;
+
+  @media (--xs) {
+    font-size: 3.8rem;
+    margin: 0 0 3rem;
+  }
+
+  @media (--md) {
+    font-size: 5rem;
+    margin: 2rem 0 5rem;
+  }
+}

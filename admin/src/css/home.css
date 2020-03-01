@@ -1,0 +1,270 @@
+.home__header {
+  padding: 2rem 2rem 1rem;
+  background-color: var(--white);
+  box-shadow: 0 2rem 2rem rgba(213, 221, 236, 0.4);
+
+  @media (--xs) {
+    border-radius: 0 0 3rem 3rem;
+  }
+
+  @media (--md) {
+    border-radius: 2rem;
+  }
+}
+
+.home__header__greeting {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-family: CeraProBold, sans-serif;
+
+  & svg {
+    margin-right: 0.5rem;
+    margin-bottom: 0.1rem;
+  }
+
+  & p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.home__header__greeting__PersonalURL {
+  display: none;
+}
+
+.home__header__actionBtn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: var(--grad2);
+  box-shadow: 0 0 2rem rgba(213, 221, 236, 0.5);
+  background-color: white;
+  border: none;
+  width: max-content;
+  padding: 1rem 2rem;
+  border-radius: 5rem;
+  margin: 1rem 1rem 1rem 0;
+  font-family: CeraProBold, sans-serif;
+  font-size: 1.6rem;
+  outline: none;
+  transition: 0.3s ease-in-out;
+
+  & svg {
+    margin-right: 1rem;
+    margin-bottom: 0.1rem;
+    fill: var(--grad2);
+  }
+
+  & strong {
+    margin: 0 0.5rem;
+  }
+}
+
+.goodmorning {
+  margin-right: 0.5rem;
+}
+
+.home__header__CopyURL:hover {
+  transform: scale(0.98);
+}
+
+.home__navigation__container {
+  box-shadow: 0 -1.5rem 3rem rgba(213, 221, 236, 0.6);
+  z-index: 2;
+  position: fixed;
+
+  @media (--xs) {
+    border-radius: 5rem;
+    bottom: 0;
+    left: 0;
+  }
+
+  @media (--md) {
+    border-radius: 0 3rem 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: white;
+  }
+}
+
+.home__navigation {
+  display: flex;
+  background-color: var(--white);
+
+  @media (--xs) {
+    flex-direction: row;
+    padding: 1.5rem 2rem 2rem 15rem;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow-x: auto;
+  }
+
+  @media (--s) {
+    padding: 1.4rem 2rem 2.8rem 2rem;
+  }
+
+  @media (--md) {
+    width: min-content;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 0 3rem 3rem 0;
+    align-items: flex-start;
+  }
+
+  & li {
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  & li:hover {
+    @media (--md) {
+      transform: translateX(0.5rem);
+    }
+  }
+}
+
+.home__navigation__logo {
+  align-items: center;
+  font-size: 1.8rem;
+  padding: 3rem;
+  font-family: CeraProBold, sans-serif;
+
+  & svg {
+    margin-right: 0.5rem;
+    margin-bottom: 0.1rem;
+  }
+
+  & span {
+    color: var(--black);
+  }
+
+  @media (--xs) {
+    display: none;
+  }
+
+  @media (--md) {
+    display: flex;
+  }
+}
+
+.home__navigation__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.home__navigation__profile__image {
+  display: flex;
+  justify-content: center;
+
+  & img {
+    width: 30%;
+    height: 30%;
+    border-radius: 50rem;
+    box-shadow: 0 0 2rem 0.2rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+.home__navigation__profile__name {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.home__navigation__item {
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  font-family: CeraProBold, sans-serif;
+
+  @media (--xs) {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+  }
+
+  @media (--s) {
+    font-size: 1.4rem;
+  }
+
+  @media (--md) {
+    margin: 1rem;
+  }
+
+  & svg {
+    margin-right: 0.5rem;
+    margin-bottom: 0.1rem;
+    fill: var(--black);
+  }
+}
+
+.home__navigation__logout {
+  & a {
+    color: var(--grey);
+  }
+}
+
+.home__navigation__item__active {
+  color: var(--white);
+  background: linear-gradient(to right, var(--grad1), var(--grad2));
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+
+  @media (--xs) {
+    padding: 0.5rem 1rem;
+  }
+
+  @media (--s) {
+    padding: 0.7rem 1.4rem;
+  }
+
+  & svg {
+    fill: var(--white);
+  }
+}
+
+.admin__home__features {
+  background-color: var(--white);
+  box-shadow: 0 2rem 2rem rgba(213, 221, 236, 0.4);
+  border-radius: 1rem;
+  padding: 3rem;
+  margin-bottom: 3rem;
+
+  & h2 {
+    font-size: 3rem;
+    font-family: CeraProBold, sans-serif;
+  }
+
+  & h3 {
+    font-size: 2rem;
+    font-family: CeraProBold, sans-serif;
+  }
+
+  & p {
+    margin: 1rem;
+    color: var(--grey);
+  }
+}
+
+.autopost__example {
+  max-width: 35rem;
+}
+
+.autopost__form__submit {
+  background-color: #1791da;
+  color: white;
+  font-size: 1.8rem;
+  padding: 1rem 3rem;
+  font-family: CeraProMedium, sans-serif;
+  border-radius: 5rem;
+  border: none;
+  cursor: pointer;
+}

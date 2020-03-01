@@ -1,0 +1,35 @@
+# folders
+dist/
+praktisch/
+socialmediacontent/
+design/
+screenshots/
+src/assets/img/blog/
+src/assets/img/linkthumbnails/
+src/assets/img/profilepics/
+src/assets/img/splashscreens/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+.vscode/

@@ -39,7 +39,7 @@
     "not dead"
   ],
   "dependencies": {
-    "@google-cloud/text-to-speech": "^2.0.2",
-    "express": "^4.17.1"
+    "nouislider": "^14.1.1",
+    "universal-tilt.js": "^2.0.6"
   }
 }
