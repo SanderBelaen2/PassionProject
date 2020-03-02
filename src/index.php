@@ -73,14 +73,14 @@ if(empty($routes[$_GET['page']])) {
 }
 
 if(empty($_GET['page'])) {
-  $_GET['page'] = 'category';
-  $_GET['category'] = 'all';
-  $_GET['pagenr'] = '1';
+  header('Location: category/all/1');
+  exit();
 }
 
 if($_GET['page'] == 'category' && empty($_GET['category'])) {
-  $_GET['category'] = 'all';
-  $_GET['pagenr'] = '1';
+  header('Location: all/1');
+  exit();
+
 }
 
 $route = $routes[$_GET['page']];
