@@ -138,6 +138,18 @@ class HomeController extends Controller {
     $this->set('canonical', "https://malli.graphics/faq");
   }
 
+  public function submit() {
+    $this->cookieagreement();
+    $this->globalCategories();
+    $categories = $this->homeDAO->selectCategories();
+    if(!empty($categories)){
+      $this->set('categories', $categories);
+    }
+    $this->set('title', "Submit your own mockup");
+    $this->set('description', "Submit your own mockup to be featured on Malli.");
+    $this->set('canonical', "https://malli.graphics/submit");
+  }
+
   public function detail() {
     $this->cookieagreement();
     $this->globalCategories();

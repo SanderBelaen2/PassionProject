@@ -59,6 +59,10 @@ $routes = array(
   'copyright' => array(
     'controller' => 'Home',
     'action' => 'copyright'
+  ),
+  'submit' => array(
+    'controller' => 'Home',
+    'action' => 'submit'
   )
 );
 

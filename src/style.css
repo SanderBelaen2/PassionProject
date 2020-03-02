@@ -6,6 +6,7 @@
 @import "./css/detail.css";
 @import "./css/blog.css";
 @import "./css/terms.css";
+@import "./css/submit.css";
 @import "./css/overzicht.css";
 
 html {
@@ -26,6 +27,7 @@ html {
 
 body {
   font-family: CeraProMedium, Futura, sans-serif;
+  font-display: sans-serif;
   color: var(black);
   font-size: 1.6rem;
   line-height: 1.5;

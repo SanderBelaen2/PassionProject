@@ -1,16 +1,17 @@
 
   <p class="home__header__quote">The best collection of <strong>FREE mockups</strong>.  Carefully <strong>Handpicked</strong> with &#10084;&#65039; by designers.</p>
     <form action="" method="get" class="landing__search__form">
-      <label for="s">
-        <input class="landing__form__input" placeholder="Search free mockups" type="text" id="s" name="s" value="<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">
-      </label>
+        <label for="search" class="hide">Search Mockup</label>
+        <input class="landing__form__input" placeholder="Search free mockups" type="text" id="search" title="Search Mockup" name="search" value="<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">
+        <label for="landing__form__submit" class="hide">Submit</label>
         <input class="landing__form__submit" id="landing__form__submit" type="submit" value="Search">
     </form>
 
     <?php if(!empty($_GET['s'])):?>
       <form action="" method="post" class="home__header__quote">
-      <input type="hidden" name="action" value="delete_search">
-          <input class="landing__form__delete" type="submit" value="Delete search filter: '<?php if(!empty($_GET['s'])) echo $_GET['s'];?>'">
+        <input type="hidden" name="action" value="delete_search">
+        <label for="delete_search_filter1" class="hide">Delete search filter</label>
+        <input class="landing__form__delete" type="submit" id="delete_search_filter1" title="Delete search filter" value="Delete search filter: '<?php if(!empty($_GET['s'])) echo $_GET['s'];?>'">
       </form>
     <?php endif;?>
 
@@ -79,7 +80,8 @@
     <p>We didn't find any mockups for '<?php if(!empty($_GET['s'])) echo $_GET['s'];?>' in this category.</p>
       <form action="" method="post">
       <input type="hidden" name="action" value="delete_search">
-          <input type="submit" value="Delete search filter: '<?php if(!empty($_GET['s'])) echo $_GET['s'];?>'">
+        <label for="delete_search_filter2">Delete Search Filter</label>
+        <input type="submit" id="delete_search_filter2" title="Delete search filter" value="Delete search filter: '<?php if(!empty($_GET['s'])) echo $_GET['s'];?>'">
       </form>
     <?php else:?>
       <p>No mockups to be found over here...</p>
@@ -106,7 +108,7 @@
 
           <?php if(($_GET['pagenr']-1) <= $resultpages):?>
             <?php if(!empty($_GET['pagenr']) && $_GET['pagenr'] !== '1' && $_GET['pagenr'] !== '0'):?>
-            <a class="home__pagenumber" href="/category/<?php if(!empty($_GET['category'])) echo $_GET['category'];?>/1/<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">Start</a>
+            <a class="home__pagenumber" href="/category/<?php if(!empty($_GET['category'])) echo $_GET['category'];?>/1/<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">First</a>
             <?php endif;?>
             <?php endif;?>
 
@@ -128,7 +130,7 @@
             <a class="home__pagenumber" href="/category/<?php if(!empty($_GET['category'])) echo $_GET['category'];?>/<?php if(!empty($_GET['pagenr'])){ echo $_GET['pagenr']+2;}else{echo '3';}?>/<?php if(!empty($_GET['s'])) echo $_GET['s'];?>"><?php if(!empty($_GET['pagenr'])){ echo $_GET['pagenr']+2;}else{echo '3';}?></a>
             <?php endif;?>
 
-          <a class="home__pagenumber" href="/category/<?php if(!empty($_GET['category'])) echo $_GET['category'];?>/<?php echo $resultpages;?>/<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">End</a>
+          <a class="home__pagenumber" href="/category/<?php if(!empty($_GET['category'])) echo $_GET['category'];?>/<?php echo $resultpages;?>/<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">Last</a>
 
           </div>
 

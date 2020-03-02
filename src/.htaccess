@@ -8,5 +8,27 @@ RewriteRule ^blogpost/([0-9]+)$ ?page=blogpost&id=$1 [NC,L]
 RewriteRule ^category/([^/]*)/?([^/]*)/?([^/]*)/?([^/]*)?$ ?page=category&category=$1&pagenr=$2&s=$3 [QSA]
 RewriteRule ^detail/([^/]*)?$  ?page=detail&url=$1
 
+## EXPIRES HEADER CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
 
+AddType font/woff .woff
+AddType font/woff2 .woff2
 
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType image/webp "access 1 year"
+ExpiresByType image/svg "access 1 year"
+ExpiresByType font/woff "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType application/javascript "access 1 month"
+ExpiresByType application/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 2 days"
+</IfModule>
+## EXPIRES HEADER CACHING ##
