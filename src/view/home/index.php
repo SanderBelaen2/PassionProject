@@ -2,7 +2,7 @@
   <p class="home__header__quote">The best collection of <strong>FREE mockups</strong>.  Carefully <strong>Handpicked</strong> with &#10084;&#65039; by designers.</p>
     <form action="" method="get" class="landing__search__form">
         <label for="search" class="hide">Search Mockup</label>
-        <input class="landing__form__input" placeholder="Search free mockups" type="text" id="search" title="Search Mockup" name="search" value="<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">
+        <input class="landing__form__input" placeholder="Search free mockups" type="text" id="search" title="Search Mockup" name="s" value="<?php if(!empty($_GET['s'])) echo $_GET['s'];?>">
         <label for="landing__form__submit" class="hide">Submit</label>
         <input class="landing__form__submit" id="landing__form__submit" type="submit" value="Search">
     </form>
@@ -80,7 +80,7 @@
     <p>We didn't find any mockups for '<?php if(!empty($_GET['s'])) echo $_GET['s'];?>' in this category.</p>
       <form action="" method="post">
       <input type="hidden" name="action" value="delete_search">
-        <label for="delete_search_filter2">Delete Search Filter</label>
+        <label for="delete_search_filter2" class="hide">Delete Search Filter</label>
         <input type="submit" id="delete_search_filter2" title="Delete search filter" value="Delete search filter: '<?php if(!empty($_GET['s'])) echo $_GET['s'];?>'">
       </form>
     <?php else:?>

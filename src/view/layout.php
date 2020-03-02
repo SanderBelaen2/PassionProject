@@ -71,7 +71,7 @@
           <nav>
             <ul class="nextXclose">
             <li><a class="menu__item" href="/blog">Blog</a></li>
-            <!-- <li><a class="menu__item" href="/submit">Submit Mockup</a></li> -->
+            <li><a class="menu__item" href="/submit">Submit Mockup</a></li>
             </ul>
           </nav>
         </div>
