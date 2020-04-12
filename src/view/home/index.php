@@ -34,24 +34,6 @@
   <?php if(!empty($mockups)):?>
     <div class="home__overzicht__items">
 
-    <div class="home__overzicht__items__promo">
-    <a data-aos="fade-up" href="/swipe">
-        <article class="home__overzicht__promo__item" data-tilt data-tilt-max="5" data-tilt-scale="1.02">
-          <div class="home__overzicht__promo__image">
-            <img src="assets/img/home/chrome.png" alt="">
-          </div>
-        </article>
-      </a>
-
-      <a data-aos="fade-up" href="/swipe">
-        <article class="home__overzicht__promo__item" data-tilt data-tilt-max="5" data-tilt-scale="1.02">
-          <div class="home__overzicht__promo__image">
-            <img src="assets/img/home/chrome2.png" alt="">
-          </div>
-        </article>
-      </a>
-      </div>
-
     <?php if(!empty($populairMockup)):?>
       <a data-aos="fade-up" href="/detail/<?php echo $populairMockup['url'];?>">
         <article class="home__overzicht__items__item" data-tilt data-tilt-max="5" data-tilt-scale="1.02">

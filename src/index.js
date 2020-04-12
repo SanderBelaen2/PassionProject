@@ -4,7 +4,6 @@ import AOS from 'aos';
 const $submit = document.getElementById('submit');
 const $detail = document.getElementById('detail');
 const $sub = document.getElementById('sub');
-const $swipe = document.getElementById('swipe');
 
 {
   const init = () => {
@@ -18,8 +17,6 @@ const $swipe = document.getElementById('swipe');
       require('./js/submit.js');
     } else if ($sub) {
       require('./js/sub.js');
-    } else if ($swipe) {
-      require('./js/swipe.js');
     }
 
     AOS.init();

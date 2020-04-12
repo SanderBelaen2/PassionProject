@@ -115,25 +115,6 @@
   }
 }
 
-.home__overzicht__items__promo {
-  display: grid;
-  grid-gap: 2rem;
-  height: 42rem;
-}
-
-.home__overzicht__promo__image {
-  background-color: var(--headerBlue);
-  height: 20rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-
-  & img {
-    width: 100%;
-  }
-}
-
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
