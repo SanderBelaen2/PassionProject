@@ -15,6 +15,46 @@ class HomeController extends Controller {
   public function index() {
     $this->cookieagreement();
     $this->globalCategories();
+    $this->subscribe();
+
+
+    $latestMockups = $this->homeDAO->selectLatestMockups();
+    if(!empty($latestMockups)){
+      $this->set('mockups', $latestMockups);
+    }
+
+    $EditorsChoiceMockups = $this->homeDAO->selectEditorsChoiceMockups();
+    if(!empty($EditorsChoiceMockups)){
+      $this->set('EditorsChoiceMockups', $EditorsChoiceMockups);
+    }
+
+    $date1 = date('Y-m-d 0:0:0');
+    $date2 = date('Y-m-d 23:59:59');
+    $editors1 = $EditorsChoiceMockups[0]['id'];
+    $editors2 = $EditorsChoiceMockups[1]['id'];
+    $mostPopulairMockup = $this->homeDAO->populairMockup($date1, $date2, $editors1, $editors2);
+    $mockup = $this->homeDAO->selectMockupById($mostPopulairMockup['mockup_id']);
+    if(!empty($mockup)){
+      $this->set('populairMockup', $mockup);
+    }
+
+    $suggestedBlogs = $this->homeDAO->selectLastestBlogposts();
+    if(!empty($suggestedBlogs)){
+      $this->set('suggestedBlogs', $suggestedBlogs);
+    }
+    $partners = $this->homeDAO->selectPartners();
+    if(!empty($partners)){
+      $this->set('partners', $partners);
+    }
+    $this->set('title', "FREE High Quality PSD Mockups to Download");
+    $this->set('description', "An amazing collection of free and royalty free, photo realistic mockups: Start using them now for your projects, design project showcases, portfolios or presentations. Even for commercial use!");
+    $this->set('canonical', "https://malli.graphics");
+
+  }
+
+  public function overview() {
+    $this->cookieagreement();
+    $this->globalCategories();
     if(empty($_GET['pagenr'])){
       $pagenr = 1;
     }else{
@@ -44,26 +84,29 @@ class HomeController extends Controller {
         $amountofresults = $this->homeDAO->countMockupsByCategoryWithSearch($_GET['category'], $_GET['s']);
       }
     }
+
     if(empty($resultpages)){$resultpages = 0;};
-    $resultpages = ceil($amountofresults['amount']/15);
+    $resultpages = ceil($amountofresults['amount']/18);
     if(!empty($mockups)){
       $this->set('mockups', $mockups);
     }
     $this->set('resultpages', $resultpages);
     }
+
+    $EditorsChoiceMockups = $this->homeDAO->selectEditorsChoiceMockups();
     $date1 = date('Y-m-d 0:0:0');
     $date2 = date('Y-m-d 23:59:59');
-    $mostPopulairMockup = $this->homeDAO->populairMockup($date1, $date2);
+    $editors1 = $EditorsChoiceMockups[0]['id'];
+    $editors2 = $EditorsChoiceMockups[1]['id'];
+    $mostPopulairMockup = $this->homeDAO->populairMockup($date1, $date2, $editors1, $editors2);
     if(!empty($mostPopulairMockup)){
       $this->set('mostPopulairMockup', $mostPopulairMockup);
     }
-    $suggestedBlogs = $this->homeDAO->selectLastestBlogposts();
-    if(!empty($suggestedBlogs)){
-      $this->set('suggestedBlogs', $suggestedBlogs);
-    }
+
     $this->set('title', "FREE High Quality PSD Mockups to Download");
     $this->set('description', "An amazing collection of free and royalty free, photo realistic mockups: Start using them now for your projects, design project showcases, portfolios or presentations. Even for commercial use!");
-    $this->set('canonical', "https://malli.graphics/".$_GET['page']."/".$_GET['category'].$_GET['pagenr']);
+    $this->set('canonical', "https://malli.graphics/category/".$_GET['category']."/".$pagenr);
+
   }
 
 
@@ -141,6 +184,23 @@ class HomeController extends Controller {
   public function submit() {
     $this->cookieagreement();
     $this->globalCategories();
+
+    if(!empty($_POST['action'])){
+      if($_POST['action'] === "submit__mockup")
+      $data = array(
+        'name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'timestamp' => date('Y-m-d H:i:s'),
+        'mockup_name' => $_POST['mockup-name'],
+        'mockup_url' => $_POST['mockup-url'],
+        'mockup_category_id' => $_POST['mockup-category']
+      );
+      $insertSubmission = $this->homeDAO->addSubmission($data);
+      $_SESSION['info'] = "Thanks! We'll check it out shortly!";
+      header('location: /category/all/1');
+      exit();
+    }
+
     $categories = $this->homeDAO->selectCategories();
     if(!empty($categories)){
       $this->set('categories', $categories);
@@ -158,6 +218,21 @@ class HomeController extends Controller {
       $mockup = $this->homeDAO->selectMockupByUrl($_GET['url']);
       if(!empty($mockup)){
 
+        if(!empty($_POST['action'])){
+          if($_POST['action'] === "report__mockup")
+          $data = array(
+            'mockup_url' => $_POST['mockup_url'],
+            'problem' => $_POST['problem'],
+            'timestamp' => date('Y-m-d H:i:s'),
+            'message' => $_POST['message'],
+            'ip' => $this->get_client_ip_env()
+          );
+          $insertSubmission = $this->homeDAO->addReportedMockup($data);
+          $_SESSION['info'] = "Thanks! We'll check it out shortly!";
+          header('location: /detail/'.$_POST['mockup_url']);
+          exit();
+        }
+
         if(!in_array(strval($mockup['id']), $_SESSION['visited_mockups'])) {
           $data = array(
             'mockup_id' => $mockup['id'],
@@ -168,7 +243,7 @@ class HomeController extends Controller {
         }
 
         $_SESSION['attempts'] = 0;
-        $randomNextMockup = $this->getRandomMockup();
+        $randomNextMockup = $this->getRandomMockup($mockup['category_id']);
         if(!empty($randomNextMockup)){
           $this->set('randomNextMockup', $randomNextMockup);
         }
@@ -243,13 +318,13 @@ class HomeController extends Controller {
     }
   }
 
-  private function getRandomMockup() {
+  private function getRandomMockup($category_id) {
     $_SESSION['attempts']++;
-    $tempMockup = $this->homeDAO->selectRandomMockup();
+    $tempMockup = $this->homeDAO->selectRandomMockup($category_id);
     if($_SESSION['attempts']<8){
       if(!empty($tempMockup)){
         if(in_array(strval($tempMockup['id']), $_SESSION['visited_mockups'])) {
-          return $this->getRandomMockup();
+          return $this->getRandomMockup($category_id);
       }else{
         return $tempMockup;
       }
@@ -277,7 +352,25 @@ class HomeController extends Controller {
         $ipaddress = 'UNKNOWN';
 
     return $ipaddress;
-}
+  }
 
+  private function subscribe() {
+    if (!empty($_POST) && !empty($_POST['action'])) {
+      if($_POST['action'] == "subscribe"){
+      $existing = $this->homeDAO->getSubByEmail($_POST['email']);
+      if(empty($existing)){
+        $data = array(
+          'email' => $_POST['email'],
+          'timestamp' => date('Y-m-d H:i:s'),
+          'ip' => $this->get_client_ip_env()
+        );
+        $insertedSub = $this->homeDAO->addSub($data);
+        $_SESSION['info'] = "Awesome! We'll be in touch!";
+        header('location: /');
+        exit();
+      }
+    }
+  }
+  }
 
 }

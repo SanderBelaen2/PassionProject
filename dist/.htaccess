@@ -26,9 +26,23 @@ ExpiresByType font/woff2 "access plus 1 year"
 ExpiresByType text/css "access 1 month"
 ExpiresByType application/pdf "access 1 month"
 ExpiresByType application/javascript "access 1 month"
-ExpiresByType application/x-javascript "access 1 month"
-ExpiresByType application/x-shockwave-flash "access 1 month"
-ExpiresByType image/x-icon "access 1 year"
+ExpiresByType image/icon "access 1 year"
 ExpiresDefault "access 2 days"
 </IfModule>
 ## EXPIRES HEADER CACHING ##
+
+Header set X-XSS-Protection "1; mode=block"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header always append X-Frame-Options DENY
+Header set X-Content-Type-Options nosniff
+Header set X-Permitted-Cross-Domain-Policies "none"
+Header set Referrer-Policy "no-referrer"
+Header always set Feature-Policy "fullscreen 'none' "
+Header set Access-Control-Allow-Methods: "*"
+
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>

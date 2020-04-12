@@ -15,12 +15,16 @@
     font-family: CeraProMedium, sans-serif;
     border: none;
     border-radius: 50rem;
-    outline: none;
     padding: 1.2rem 1.6rem;
     cursor: pointer;
     color: var(--black);
     background: var(--headerBlue);
     white-space: nowrap;
+    transition: var(--transition-fast);
+
+    &:hover {
+      background-color: #d5d8df;
+    }
   }
 
   & .home__filters__item__active {
@@ -98,8 +102,35 @@
     top: 0;
     background: -webkit-linear-gradient(left, var(--grad1), var(--grad2));
     color: white;
-    padding: 0.4rem 1.6rem;
+    padding: 0.4rem 1.6rem 0.4rem 0.8rem;
     border-radius: 0 0 1rem;
+
+    & svg {
+      margin-right: 0.8rem;
+    }
+  }
+
+  & .home__overzicht__items__item__mostpopulair {
+    background: -webkit-linear-gradient(left, #ffd11a, #fea50b);
+  }
+}
+
+.home__overzicht__items__promo {
+  display: grid;
+  grid-gap: 2rem;
+  height: 42rem;
+}
+
+.home__overzicht__promo__image {
+  background-color: var(--headerBlue);
+  height: 20rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+
+  & img {
+    width: 100%;
   }
 }
 

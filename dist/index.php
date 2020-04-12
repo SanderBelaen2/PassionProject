@@ -14,7 +14,7 @@ $routes = array(
   ),
   'category' => array(
     'controller' => 'Home',
-    'action' => 'index'
+    'action' => 'overview'
   ),
   'blog' => array(
     'controller' => 'Home',
@@ -63,18 +63,20 @@ $routes = array(
   'submit' => array(
     'controller' => 'Home',
     'action' => 'submit'
+  ),
+  'swipe' => array(
+    'controller' => 'Swipe',
+    'action' => 'swipe'
   )
 );
 
 
-if(empty($routes[$_GET['page']])) {
-    header('Location: category/all/1');
-    exit();
-}
-
 if(empty($_GET['page'])) {
-  header('Location: category/all/1');
-  exit();
+  $_GET['page'] = 'index';
+}else{
+  if(empty($routes[$_GET['page']])) {
+    $_GET['page'] = 'index';
+  }
 }
 
 if($_GET['page'] == 'category' && empty($_GET['category'])) {

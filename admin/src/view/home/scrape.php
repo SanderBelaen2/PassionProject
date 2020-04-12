@@ -12,5 +12,16 @@
     <?php if(!empty($scrapedMockups)){ echo 'Succesfully scraped '.$scrapedMockups.' Mockups from Mockupworld';}?>
   </div>
 
+  <div class="source">
+    <h2>CSSAuhthor</h2>
+    <form action="" method="post">
+      <input type="hidden" name="action" value="scrape">
+      <input type="hidden" name="source" value="cssauhthor">
+      <input type="number" name="page" value="1">
+      <input type="submit">
+    </form>
+    <?php if(!empty($scrapedMockups)){ echo 'Succesfully scraped '.$scrapedMockups.' Mockups from CSSAuhthor';}?>
+  </div>
+
 </div>
 </div>

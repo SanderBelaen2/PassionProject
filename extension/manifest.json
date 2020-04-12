@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Malli Graphics",
+  "version": "0.1",
+  "description": "Free high quality PSD mockups",
+  "icons": {
+    "128": "icons/icon128.png",
+    "48": "icons/icon48.png",
+    "16": "icons/icon16.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "css": ["css/popup_alternative.css", "css/notification.css"],
+      "js": ["script.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["declarativeContent"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources": [
+    "assets/fonts/CeraProMedium.woff2",
+    "assets/fonts/CeraProBold.woff2",
+    "assets/fonts/CeraProMedium.woff",
+    "assets/fonts/CeraProBold.woff",
+    "assets/img/logo.png"
+  ]
+}

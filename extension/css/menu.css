@@ -1,0 +1,144 @@
+@font-face {
+  font-family: 'CeraPro';
+  font-style: normal;
+  font-weight: bold;
+  src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProBold.woff2')
+      format('woff2'),
+    url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CeraPro';
+  font-style: normal;
+  font-weight: normal;
+  src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProMedium.woff2')
+      format('woff2'),
+    url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProMedium.woff') format('woff');
+}
+
+body {
+  margin: 0;
+  font-family: CeraPro;
+  font-size: 20px;
+}
+
+.main__container {
+  width: 320px;
+  position: relative;
+  background-color: #eceff6;
+  padding: 20px;
+}
+
+.menu__remove {
+  padding: 10px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__logo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  outline: none;
+}
+
+.main__logo-span {
+  font-weight: bold;
+}
+
+.main__logo-img {
+  max-width: 30px;
+  margin-right: 10px;
+}
+
+.menu__img__container {
+  margin-top: 20px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff4f6;
+}
+
+.menu__welcome {
+  margin-top: -4px;
+  margin-right: 15px;
+  font-size: 35px;
+  line-height: 0;
+  color: #2f2f2f;
+}
+
+.menu__content {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.menu__text {
+  color: #2f2f2f;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 20px;
+}
+
+input {
+  border: none;
+  font-family: CeraPro, sans-serif;
+  border-radius: 50px;
+  outline: none;
+  font-size: 14px;
+}
+
+form {
+  position: relative;
+  background-color: white;
+  border-radius: 50px;
+  padding: 5px;
+}
+
+#search {
+  padding: 10px 20px;
+}
+
+#submit {
+  padding: 10px 20px;
+  position: aboslute;
+  left: 0;
+  background: linear-gradient(to right, #ec14ff, #6806fe) !important;
+  color: white;
+  cursor: pointer;
+}
+
+button {
+  background: #eceff6;
+  padding: 10px 20px;
+  margin: 5px 3px;
+  font-family: CeraPro, sans-serif;
+  border-radius: 50px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #e1e4eb;
+}

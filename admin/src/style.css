@@ -7,6 +7,7 @@
 @import "./css/home__analytics.css";
 @import "./css/home__settings.css";
 @import "./css/login.css";
+@import "./css/blog.css";
 
 html {
   font-size: 62.5%;
@@ -192,7 +193,7 @@ body {
   border-radius: 5rem;
   color: var(--biolinky-light-blue);
   font-family: CeraProBold, sans-serif;
-  transition: 0.1s ease-in-out;
+  transition: var(--transition);
   margin: 2rem;
 
   @media (--xs) {

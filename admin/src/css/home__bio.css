@@ -115,7 +115,7 @@
     "tile__item__title"
     "tile__item__subtitle"
     ".";
-  transition: 0.3s ease-in-out;
+    transition: var(--transition);
   margin: 3rem 0;
   box-shadow: 0 2rem 2rem rgba(213, 221, 236, 0.3);
 
@@ -212,4 +212,8 @@
   padding: 2rem;
   border-radius: 1rem;
   background-color: var(--headerBlue);
+}
+
+.source {
+  margin-bottom: 3rem;
 }

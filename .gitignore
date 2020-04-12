@@ -10,6 +10,9 @@ yarn-error.log*
 
 # Dependency directories
 node_modules/
+dist/
+src/assets/img/mockupimages
+src/assets/img/blog
 
 # Optional npm cache directory
 .npm

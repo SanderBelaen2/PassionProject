@@ -1,0 +1,110 @@
+.landing__newsletter__container {
+  min-height: 40rem;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(/assets/img/landing/bg.svg), var(--headerBlue);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.landing__newsletter__container__title {
+  color: var(--black);
+  text-align: center;
+  font-size: 3.5rem;
+  min-width: 30rem;
+}
+
+.landing__newsletter__container__subtitle {
+  font-size: 2rem;
+  margin: 1rem 0 5rem;
+}
+
+.landing__newsletter__form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__newsletter__form {
+  display: flex;
+
+  @media (--xs) {
+    flex-direction: column;
+  }
+
+  @media (--md) {
+    flex-direction: row;
+  }
+}
+
+.landing__newsletter__form__input {
+  font-size: 1.8rem;
+  font-family: CeraProMedium, sans-serif;
+  border: none;
+  border-radius: 50rem;
+  outline: none;
+  padding: 2rem 4rem;
+
+  &::placeholder {
+    color: var(--grey);
+  }
+
+  @media (--xs) {
+    min-width: 30rem;
+  }
+
+  @media (--md) {
+    min-width: 60rem;
+    transform: translateX(8.5rem);
+  }
+}
+
+.landing__newsletter__form__submit {
+  width: min-content;
+  font-size: 1.8rem;
+  font-family: CeraProMedium, sans-serif;
+  background: -webkit-linear-gradient(
+    left,
+    var(--grad1),
+    var(--grad2),
+    var(--grad1)
+  );
+  background-size: 200%;
+  color: var(--white);
+  border: none;
+  border-radius: 50rem;
+  outline: none;
+  padding: 1.5rem 4rem;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    background-position: right;
+  }
+
+  @media (--xs) {
+    margin: 3rem auto;
+    min-width: min-content;
+  }
+
+  @media (--md) {
+    margin: 0.5rem;
+    transform: translateX(-8.5rem);
+  }
+}
+
+.landing__newsletter__form__error {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  color: var(--grad2);
+  margin-top: 1rem;
+
+  & svg {
+    margin-right: 1rem;
+  }
+}

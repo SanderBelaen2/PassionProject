@@ -34,7 +34,7 @@
                   assets/img/blog/<?php echo $blogpost['id'];?>_85.png  1319w,
                   assets/img/blog/<?php echo $blogpost['id'];?>_100.png 1552w
                 "
-                sizes="(min-width: 1260px) 100vwv,
+                sizes="(min-width: 1260px) 100vw,
                 (min-width: 992px) 100vw,
                 (min-width: 768px) 100vw,
                 (min-width: 576px) 100vw,
@@ -48,6 +48,10 @@
               />
             </picture>
     </div>
+    <section class="blog__post__container">
+      <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7I4KQW&placement=malligraphics" id="_carbonads_js"></script>
+      <style>#carbonads {  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto  Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial  sans-serif;}#carbonads {  display: block;  max-width: 728px;  position: relative;  background-color: hsl(0, 0%, 99%);  border: solid 1px #eee;  font-size: 22px;  box-sizing: content-box;}#carbonads > span {  display: block;}#carbonads a {  color: inherit;  text-decoration: none;}#carbonads a:hover {  color: inherit;}.carbon-wrap {  display: flex;  align-items: center;}.carbon-img {  display: block;  margin: 0;  line-height: 1;}.carbon-img img {  display: block;  height: 90px;  width: auto;}.carbon-text {  display: block;  padding: 0 1em;  line-height: 1.35;  text-align: left;}.carbon-poweredby {  display: block;  position: absolute;  bottom: 0;  right: 0;  padding: 6px 10px;  background: repeating-linear-gradient(                  -45deg,                  transparent,                  transparent 5px,                  hsla(0, 0%, 0%, 0.025) 5px,                  hsla(0, 0%, 0%, 0.025) 10px  )  hsla(203, 11%, 95%, 0.8);  text-align: center;  text-transform: uppercase;  letter-spacing: 0.5px;  font-weight: 600;  font-size: 8px;  border-top-left-radius: 4px;  line-height: 1;}@media only screen and (min-width: 320px) and (max-width: 759px) {  .carbon-text {    font-size: 14px;  }}</style>
+    </section>
     <H2 class="blog__header__slogan"><?php echo $blogpost['title'];?></H2>
     <h3 class="landing__header__p blog__header__h3"><?php echo $blogpost['subtitle'];?></h3>
   </div>
@@ -103,7 +107,7 @@
                   assets/img/blog/<?php echo $blogpost['id'];?>_85.png  1319w,
                   assets/img/blog/<?php echo $blogpost['id'];?>_100.png 1552w
                 "
-                sizes="(min-width: 1260px) 100vwv,
+                sizes="(min-width: 1260px) 100vw,
                 (min-width: 992px) 100vw,
                 (min-width: 768px) 100vw,
                 (min-width: 576px) 100vw,
@@ -127,5 +131,6 @@
   <?php endforeach;?>
 
   </div>
+</div>
 </section>
 <?php endif?>

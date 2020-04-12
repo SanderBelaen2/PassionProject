@@ -1,5 +1,9 @@
 .terms {
-  margin: 4rem;
+  margin: 4rem 0;
+
+  @media (--md) {
+    margin: 4rem;
+  }
 }
 
 .terms > h2 {
@@ -19,7 +23,6 @@
   font-family: CeraProMedium, sans-serif;
   line-height: 1.8;
   color: var(--grey);
-
 }
 
 .terms strong {
@@ -35,7 +38,7 @@
   z-index: 10000000;
   background-color: white;
   overflow: hidden;
-  border-radius: 3rem;
+  border-radius: 2rem;
 
   & a {
     color: var(--grad1);
@@ -57,7 +60,7 @@
     right: 3rem;
     left: initial;
     bottom: 3rem;
-    padding: 2.5rem 4rem;
+    padding: 2rem 3rem;
     max-width: 30rem;
     box-shadow: 0 1rem 3rem rgba(213, 221, 236, 1);
   }
@@ -73,7 +76,8 @@
   outline: none;
   font-family: CeraProMedium, sans-serif;
   margin-top: 2rem;
-  transition: 0.1s ease-in-out;
+  transition: var(--transition);
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);

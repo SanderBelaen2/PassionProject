@@ -13,6 +13,10 @@ $routes = array(
     'controller' => 'Home',
     'action' => 'ads'
   ),
+  'blog' => array(
+    'controller' => 'Home',
+    'action' => 'blog'
+  ),
   'scrape' => array(
     'controller' => 'Home',
     'action' => 'scrape'

@@ -1,7 +1,7 @@
 require("./style.css");
 const instagramCount = document.querySelector(`#instagramCount`);
 const approveButtons = document.querySelectorAll(`.approveThisMockup`);
-const deleteButtons = document.querySelectorAll(`.deleteThisMockup`);
+const copyBtn = document.querySelector(`#copyblog`);
 
 {
   const init = () => {
@@ -11,9 +11,8 @@ const deleteButtons = document.querySelectorAll(`.deleteThisMockup`);
       checkApproveButtons();
     }
 
-    if (deleteButtons) {
-      checkDeleteButtons();
-      console.log("buttons found");
+    if (copyBtn) {
+      copyBlogPost();
     }
   };
 
@@ -35,11 +34,20 @@ const deleteButtons = document.querySelectorAll(`.deleteThisMockup`);
     });
   };
 
-  const checkDeleteButtons = () => {
-    console.log("function found");
-    deleteButtons.forEach(deleteBtn => {
-      deleteBtn.addEventListener(`click`, handleClickDeleteBtn);
+  const copyBlogPost = () => {
+    copyBtn.addEventListener(`click`, () => {
+      const content = document.querySelector(`#blogcontent`).innerHTML;
+      copyToClipboard(content);
     });
+  };
+
+  const copyToClipboard = str => {
+    const el = document.createElement("textarea");
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
   };
 
   const handleClickApproveBtn = e => {
@@ -51,7 +59,7 @@ const deleteButtons = document.querySelectorAll(`.deleteThisMockup`);
       ".category"
     ).value;
 
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append("action", "approve");
     formData.append("platform", platform);
     formData.append("category", category);
@@ -80,7 +88,7 @@ const deleteButtons = document.querySelectorAll(`.deleteThisMockup`);
       "input[name=mockup_img]"
     ).value;
 
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append("action", "delete");
     formData.append("mockup_img", mockup_img);
     formData.append("mockup_id", mockup_id);

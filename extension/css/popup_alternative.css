@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'CeraPro';
+  font-style: normal;
+  font-weight: bold;
+  src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProBold.woff2') format('woff2'), url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProBold.woff') format('woff');;
+}
+
+@font-face {
+  font-family: 'CeraPro';
+  font-style: normal;
+  font-weight: normal;
+  src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProMedium.woff2') format('woff2'), url('chrome-extension://__MSG_@@extension_id__/assets/fonts/CeraProMedium.woff') format('woff');
+}
+
+
+.octo___popup__logo{
+  margin-bottom: 15px;
+}
+
+.octo___popup__remove{
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  padding: 10px;
+  transition: all .15s ease-in-out;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.octo___popup__remove:hover{
+  opacity: 0.5;
+}
+
+.octo___popup__container{
+  position: fixed;
+  top: 20px;
+  right: -50px;
+  padding: 30px;
+  box-shadow: 0px 5px 25px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  font-family: CeraPro, sans-serif;
+  text-align: center;
+  width: 300px;
+  background-color: white;
+  opacity: 0;
+  animation: slide 0.25s forwards;
+  animation-delay: 1s;
+  z-index: 1000000000000;
+}
+
+.octo___popup__text{
+  text-align: left;
+  font-size: 16px;
+}
+
+.octo___popup__img{
+  margin-top: 20px;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  background-color: white;
+}
+
+.octo___popup__price{
+  margin: 20px 0px !important;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  color: #2F2F2F;
+}
+
+.octo___popup__link{
+  font-size: 16px;
+  color: #2F2F2F !important;
+}
+
+.octo___popup__button{
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 50px !important;
+  background-color: #FD5D7B !important;
+  text-decoration: none !important;
+  color: white !important;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 6px;
+
+  transition: all .15s ease-in-out !important;
+}
+
+.octo___popup__button:hover{
+  transform: scale(1.05) !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+@keyframes slide {
+    100% {
+      opacity: 1;
+      right: 20px;
+    }
+}

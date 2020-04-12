@@ -1,13 +1,17 @@
-@import "./css/reset.css";
-@import "./css/vars.css";
-@import "./css/fonts.css";
-@import "./css/home.css";
-@import "./css/login.css";
-@import "./css/detail.css";
-@import "./css/blog.css";
-@import "./css/terms.css";
-@import "./css/submit.css";
-@import "./css/overzicht.css";
+@import './css/reset.css';
+@import './css/vars.css';
+@import './css/fonts.css';
+@import './css/home.css';
+@import './css/login.css';
+@import './css/detail.css';
+@import './css/blog.css';
+@import './css/terms.css';
+@import './css/submit.css';
+@import './css/overzicht.css';
+@import './css/partners.css';
+@import './css/footer.css';
+@import './css/carbon.css';
+@import './css/swipe.css';
 
 html {
   font-size: 62.5%;
@@ -36,7 +40,6 @@ body {
   -webkit-touch-callout: none;
   -webkit-backface-visibility: hidden;
   position: relative;
-
   z-index: -3;
 }
 
@@ -95,6 +98,51 @@ body {
   align-content: center;
 }
 
+.session__info__container {
+  position: absolute;
+  height: 10rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  z-index: 12;
+  pointer-events: none;
+  transform: translateY(0);
+  animation: hide3s 3s forwards;
+}
+
+@keyframes hide3s {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+}
+
+.session__info {
+  color: white;
+  background: linear-gradient(to right, var(--grad1), var(--grad2));
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-right: 1rem;
+  }
+}
+
 .centerY {
   display: flex;
   flex-direction: column;
@@ -149,7 +197,7 @@ body {
   color: var(--red);
 
   & ::before {
-    content: "error";
+    content: 'error';
     position: absolute;
     width: 3rem;
     height: 3rem;

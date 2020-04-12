@@ -69,7 +69,7 @@
   width: max-content;
   text-decoration: none;
   border-radius: 1rem;
-  transition: all 0.2s;
+  transition: all 0.3s;
   font-size: 1.8rem;
   font-family: CeraProMedium, sans-serif;
   display: inline-block;
@@ -126,7 +126,7 @@
   left: 0;
   z-index: -1;
 
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 
 .landing__CTA-blue::after {
@@ -205,7 +205,7 @@
   width: 100%;
   display: flex;
   position: relative;
-  transition: 0.4s ease-in-out;
+  transition: var(--transition);
   order: -1;
   align-self: flex-start;
 
@@ -308,7 +308,7 @@
   justify-items: center;
   max-width: 30rem;
   border-radius: 1rem;
-  transition: 0.3s ease-in-out;
+  transition: var(--transition);
 
   @media (--xs) {
     margin: 0 2rem;
@@ -787,7 +787,7 @@
   border-radius: 5rem;
   color: var(--biolinky-light-blue);
   font-family: CeraProBold, sans-serif;
-  transition: 0.1s ease-in-out;
+  transition: var(--transition);
   font-size: 1.6rem;
   padding: 1rem 2rem;
   display: flex;
@@ -863,6 +863,7 @@
   background-color: white;
   overflow: hidden;
   border-radius: 3rem;
+  font-size: 1.6rem;
 
   & a {
     color: var(--biolinky-dark-blue);
@@ -904,7 +905,7 @@
   outline: none;
   font-family: CeraProMedium, sans-serif;
   margin-top: 2rem;
-  transition: 0.1s ease-in-out;
+  transition: var(--transition);
 
   &:hover {
     transform: scale(1.05);
@@ -916,7 +917,7 @@
   align-items: center;
 
   & a {
-    transition: 0.6s cubic-bezier(0.17, 0.84, 0.44, 1);
+    transition: var(--transition);
     padding: 1rem;
     margin-top: 1rem;
     width: 5rem;

@@ -27,6 +27,26 @@ class HomeDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+
+  public function selectMockupsBlog($data){
+    $sql = "SELECT `mockups`.`url`, `mockups`.`name`, `mockups`.`text`, `mockups`.`platform`
+    FROM `mockup_views`
+    INNER JOIN `mockups`
+    ON `mockups`.`id` = `mockup_views`.`mockup_id`
+    WHERE category_id = :category
+    AND `timestamp` BETWEEN :date1 AND :date2
+    GROUP BY mockup_id
+    ORDER BY COUNT(*)
+    DESC
+    LIMIT 20";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':date1', $data['date1']);
+    $stmt->bindValue(':date2', $data['date2']);
+    $stmt->bindValue(':category', $data['category']);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   public function countUnapprovedMockups(){
     $sql = "SELECT COUNT(*) AS `amount` FROM `mockups` WHERE `approved` = :approved";
     $stmt = $this->pdo->prepare($sql);

@@ -178,8 +178,8 @@
 
 .login__container__back {
   & svg {
-    fill: white;
-    transition: 0.3s ease-in-out;
+    fill: var(--white);
+    transition: var(--transition);
   }
 
   position: absolute;

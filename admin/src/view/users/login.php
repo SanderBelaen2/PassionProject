@@ -10,7 +10,7 @@
         }
       ?>
       <?php if (empty($_SESSION['user'])): ?>
-      <a class="login__container__back" href="http://biolinky.co"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/></svg></a>
+      <a class="login__container__back" href="https://malli.graphics"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/></svg></a>
       <form class="login-form" method="post" action="index.php?page=login">
         <header>
           <h1 class="hide">Login</h1>

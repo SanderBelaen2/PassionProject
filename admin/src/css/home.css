@@ -50,7 +50,7 @@
   font-family: CeraProBold, sans-serif;
   font-size: 1.6rem;
   outline: none;
-  transition: 0.3s ease-in-out;
+  transition: var(--transition);
 
   & svg {
     margin-right: 1rem;
@@ -120,7 +120,7 @@
   }
 
   & li {
-    transition: 0.2s ease-in-out;
+    transition: var(--transition);
     cursor: pointer;
   }
 
@@ -137,9 +137,10 @@
   padding: 3rem;
   font-family: CeraProBold, sans-serif;
 
-  & svg {
-    margin-right: 0.5rem;
+  & img {
+    margin-right: 1rem;
     margin-bottom: 0.1rem;
+    max-width: 3rem;
   }
 
   & span {
@@ -267,4 +268,29 @@
   border-radius: 5rem;
   border: none;
   cursor: pointer;
+}
+
+.CTAbtn {
+  width: max-content;
+  display: inline;
+  font-size: 2rem;
+  font-family: CeraProMedium, sans-serif;
+  border: none;
+  border-radius: 50rem;
+  outline: none;
+  padding: 1.5rem 4rem;
+  cursor: pointer;
+  background: linear-gradient(
+    to left,
+    var(--grad1),
+    var(--grad2),
+    var(--grad1)
+  );
+  background-size: 200%;
+  color: var(--white);
+  transition: var(--transition);
+
+  &:hover {
+    background-position: right;
+  }
 }

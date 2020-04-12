@@ -8,9 +8,8 @@
 
   <?php foreach ($blogposts as $blogpost):?>
 
-  <link rel="prefetch" href="/blogpost/<?php echo $blogpost['id'];?>">
   <a href="/blogpost/<?php echo $blogpost['id'];?>">
-    <article class="blog__article" >
+    <article class="blog__article <?php if($blogposts[0]['id'] === $blogpost['id']) echo 'blog__article__first';?>" >
       <div class="blog__article__image__container">
         <picture>
               <source
@@ -44,7 +43,7 @@
                   assets/img/blog/<?php echo $blogpost['id'];?>_85.png  1319w,
                   assets/img/blog/<?php echo $blogpost['id'];?>_100.png 1552w
                 "
-                sizes="(min-width: 1260px) 100vwv,
+                sizes="(min-width: 1260px) 100vw,
                 (min-width: 992px) 100vw,
                 (min-width: 768px) 100vw,
                 (min-width: 576px) 100vw,
