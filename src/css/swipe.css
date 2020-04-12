@@ -1,0 +1,24 @@
+.swipe__container {
+  height: 80rem;
+}
+
+#board {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--headerBlue);
+}
+.card {
+  width: calc(100vw - 4rem);
+  height: calc(100vw - 4rem);
+  max-width: 50rem;
+  max-height: 50rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  background-color: white;
+  transform: translateX(-50%) translateY(-50%);
+}
