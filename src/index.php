@@ -63,10 +63,6 @@ $routes = array(
   'submit' => array(
     'controller' => 'Home',
     'action' => 'submit'
-  ),
-  'swipe' => array(
-    'controller' => 'Swipe',
-    'action' => 'swipe'
   )
 );
 
